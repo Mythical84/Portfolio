@@ -1,0 +1,2 @@
+# About
+This is a portfolio website that I created. It uses the github api in order to get a list of my public github repos, and display them on neatly organized cards. clicking on one of these cards will result in a popup with the link to the github repo and the description of the project, this time in full as the card can only fit so much text.
