@@ -1,11 +1,21 @@
 <script lang="ts">
-  import Card from "$lib/Card.svelte"
-  import { onMount } from 'svelte'
+  import { onMount } from 'svelte';
+  import Card from '$lib/Card.svelte'
 
   let posts = []
   let cards = [
     { title: "Test", description: "Yeah i got nothing for you" },
-    { title: "Test2", description: "Testing description" }
+    { title: "Test2", description: "Testing description" },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
   ]
 
   onMount(async () => {
@@ -25,28 +35,33 @@
     alert(posts[0]["name"])
     */
   })
-  
+  var width = 0
+  var marginLeft = 15
+
+  while (true) {
+    
+  }
 </script>
 
 <svelte:head>
-	<title>Home</title>
+  <title>Home</title>
 </svelte:head>
 
-<main>
+<main bind:clientWidth={width}>
+  {width}
+  {marginLeft}
   {#each cards as card}
-    <Card color={card.color}/>
+    <Card color={card.color} marginLeft={marginLeft}/>
   {/each}
 </main>
 
 <style>
-
   main {
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 1vw;
     width: 95vw;
     height: 80vh;
     border: 1px solid black;
     border-radius: 25px;
   }
-  
 </style>

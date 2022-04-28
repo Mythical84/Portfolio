@@ -1,5 +1,6 @@
 <script lang="ts">
   export let color
+  export let marginLeft
 
   function onClick() {
     alert("test")
@@ -7,7 +8,7 @@
 </script>
 
 <main>
-  <div id="container" on:click={onClick} style="--color: {color}">
+  <div id="container" on:click={onClick} style="--color: {color}; --marginLeft: {marginLeft}px">
 
   </div>
 </main>
@@ -19,7 +20,7 @@
     width: 200px;
     float:left;
     border: 2px solid var(--color);
-    margin-left: 15px;
+    margin-left: var(--marginLeft);
     margin-top: 15px;
     transform: translateY(0px) translateX(0px);
     box-shadow: 0px 0px #888888;
