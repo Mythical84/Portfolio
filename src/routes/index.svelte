@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, beforeUpdate } from 'svelte';
   import Card from '$lib/Card.svelte'
 
   let posts = []
@@ -35,12 +35,17 @@
     alert(posts[0]["name"])
     */
   })
+  
   var width = 0
-  var marginLeft = 15
-
-  while (true) {
-    
-  }
+  var marginLeft = 0
+  let cardsPerLine = 0
+  let remainingSpace = 0
+  
+  beforeUpdate( async () => {
+    cardsPerLine = Math.floor(width/204)
+    remainingSpace = width - cardsPerLine * 204
+    marginLeft = remainingSpace/(cardsPerLine + 1)
+  })
 </script>
 
 <svelte:head>
@@ -48,8 +53,6 @@
 </svelte:head>
 
 <main bind:clientWidth={width}>
-  {width}
-  {marginLeft}
   {#each cards as card}
     <Card color={card.color} marginLeft={marginLeft}/>
   {/each}
